@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
-    [SerializeField] private Transform _weaponHolder;
-    [SerializeField] private Transform _weaponPosition;
+    [SerializeField] public Transform _weaponHolder;
+    [SerializeField] public Transform _weaponPosition;
     public Rifle weapon;
-    [SerializeField] private RottateArrTarget rottate;
+    [SerializeField] public RottateArrTarget rottate;
     
     private void Awake()
     {

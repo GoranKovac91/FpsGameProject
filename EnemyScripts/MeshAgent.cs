@@ -15,14 +15,6 @@ public class MeshAgent : Enemy
 	private AudioSource _enemyAudio;
 	[SerializeField] private CapsuleCollider _collider;
 	[SerializeField] private Transform _target;
-	
-	
-	
-  [SerializeField] protected override int _health { get => base._health; set => base._health = 200; }
-  [SerializeField ] protected override float _speed { get => base._speed; set => base._speed = 2; }
-
-  [SerializeField] protected override float _damage { get => base._damage; set => base._damage = 15; }
-   
 
     private void Awake()
 	{
@@ -34,9 +26,8 @@ public class MeshAgent : Enemy
 		animator = GetComponent<Animator>();
 		_enemyAudio = GetComponent<AudioSource>();
 		_collider = GetComponent<CapsuleCollider>();
-		_target.position = GetComponent<PlayerControls2>().transform.position;
 		
-		
+			
 	}
 	private void Start()
 	{
@@ -111,8 +102,6 @@ public class MeshAgent : Enemy
 			
 		}
 	}
-
-
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;

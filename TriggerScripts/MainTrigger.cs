@@ -8,8 +8,6 @@ public class MainTrigger : MonoBehaviour
 {
     public  UnityEvent OnPlayerEnter = new UnityEvent();
   
-
-
     private void OnTriggerEnter(Collider other)
     {
        

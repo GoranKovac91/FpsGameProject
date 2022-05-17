@@ -5,16 +5,10 @@ using UnityEngine;
 public class PlayerInteractions : MonoBehaviour
 {
     public float Health = 100;
-   // [SerializeField] private Rigidbody _rigidbody;
     public Vector3 _respawnPosition;
     public GameManager gameManager;
    
 
-    private void Awake()
-    {
-        //_rigidbody = GetComponent<Rigidbody>();
-                
-    }
     private void Update()
     {
         
@@ -60,7 +54,6 @@ public class PlayerInteractions : MonoBehaviour
     }
    
   
-   
-
+  
 
 }

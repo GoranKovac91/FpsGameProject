@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 public class PlayerControls2 : MonoBehaviour
 {
@@ -10,8 +12,9 @@ public class PlayerControls2 : MonoBehaviour
     private CharacterController _characterController;
     [SerializeField] private string _verticalMovement = "Vertical";
     [SerializeField] private string _horizontalMovement = "Horizontal";
-    //private Animator _animator;
-
+    [SerializeField] public bool FireWeapons { get; private set; }
+    [SerializeField]
+    public static event Action OnFire = delegate { };
     public LayerMask GroundLayerMask;
     public Transform GroundCheck;
 
@@ -21,7 +24,7 @@ public class PlayerControls2 : MonoBehaviour
 
     private void Awake()
     {
-        //_animator = GetComponent<Animator>();
+    
         _characterController = GetComponent<CharacterController>();
     }
 
@@ -57,6 +60,11 @@ public class PlayerControls2 : MonoBehaviour
         _velocity.y += _gravity * Time.deltaTime;
 
         _characterController.Move(_velocity * Time.deltaTime);
+        FireWeapons = Input.GetButtonDown("Fire1");
+        if (FireWeapons)
+        {
+            OnFire();
+        }
 
       
     }

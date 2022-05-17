@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _bullets = Rifle._bullets;
     [SerializeField] private int _bulletsToRealod = Rifle._bulletsToReload;
     [SerializeField] public MouseLooker mouseLooker;
-    [SerializeField] public Pistol pistol;
+    
     [SerializeField] public Rifle rifle;
     [SerializeField] public FpsMouse mouse;
     
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         _levelPausedCanvas.enabled = false;
         UpdateBullets(_bullets, _bulletsToRealod);
         mouseLooker = FindObjectOfType<MouseLooker>();
-        pistol = FindObjectOfType<Pistol>();
+       
         rifle = FindObjectOfType<Rifle>();
         mouse = FindObjectOfType<FpsMouse>();             
     }

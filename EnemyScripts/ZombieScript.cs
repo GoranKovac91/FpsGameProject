@@ -14,10 +14,7 @@ public class ZombieScript : Enemy
     private Rigidbody _rigidBody;
     public GameObject healthBoosterPrefab;
     [SerializeField] private GameObject _bulletPickupPrefab;
-    [SerializeField] protected override int _health { get => base._health; set => base._health = 100; }
-    [SerializeField] protected override float _speed { get => base._speed; set => base._speed = 2; }
 
-    [SerializeField] protected override float _damage { get => base._damage; set => base._damage = 15; }
 
 
 
@@ -47,15 +44,13 @@ public class ZombieScript : Enemy
         _health -= value;
 
         if (_health <=0 )
-        {
-            
+        {  
             isDead = true;
             _rigidBody.isKinematic = false;
             Destroy(_navMesh);
             Invoke("CreateBooster", 2.0f * Time.deltaTime);
             _animator.SetBool("IsDead", true);
-            Destroy(gameObject,2.0f);
-           
+            Destroy(gameObject,2.0f);   
         }
     }
   

@@ -1,40 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 public class Rifle : MonoBehaviour
 {
-    [SerializeField] protected virtual int damage { get; set; }
-    [SerializeField] protected virtual float range { get; set; }
-    [SerializeField] protected virtual int _bullets { get; set; }
-    [SerializeField] private ParticleSystem _muzzleFlash;
-    [SerializeField] private GameObject _impactEffect;
-    [SerializeField] private AudioSource _weaponAudio;
-    private Animator _animator;
-    [SerializeField] private GameObject _shootPosition;
-    [SerializeField] protected virtual int _impactForce { get; set; }
-    [SerializeField] protected virtual int _bulletsToReload { get; set; }
-    [SerializeField] private LayerMask _ignoreLayer;
+    [SerializeField] public int damage;
+    [SerializeField] public float range;
+    [SerializeField] public  static int _bullets=20; 
+    [SerializeField] public ParticleSystem _muzzleFlash;
+    [SerializeField] public GameObject _impactEffect;
+    [SerializeField] public AudioSource _weaponAudio;
+    [SerializeField] public GameObject _shootPosition;
+    [SerializeField] public int _impactForce;
+    [SerializeField] public static int _bulletsToReload;
+    [SerializeField] public LayerMask _ignoreLayer;
+  
+   
 
-    private void Awake()
+    public  void Awake()
     {
         _weaponAudio = GetComponent<AudioSource>();
-        _animator = GetComponentInParent<Animator>();
-        _bulletsToReload = 20;
-         damage = 10;
-         range = 100.0f;
-        _impactForce = 500;
-        _bullets = 20;
-
+        PlayerControls2.OnFire += Shoot;
+       
     }
-    private void Update()
+    public  void Update()
     {
-        if (Input.GetButtonDown("Fire1") && _bullets>=1)
-        {
-            Shoot();
+        //if (Input.GetButtonDown("Fire1") && _bullets>=1)
+        //{
+        //    Debug.Log("Shooting");
+        //    Shoot();
            
-        }
+        //}
         if (Input.GetKeyDown(KeyCode.R) && _bulletsToReload > 0 &&_bullets <=0)
         {
           
@@ -52,10 +50,8 @@ public class Rifle : MonoBehaviour
             
            
         }
-
-
     }
-    public virtual void Shoot()
+    private void Shoot()
     {
        
         _muzzleFlash.Play();
@@ -99,7 +95,7 @@ public class Rifle : MonoBehaviour
 
         
     }
-    public virtual  void Reload(int value)
+    public void Reload(int value)
     {
         _bulletsToReload += value;
     }
