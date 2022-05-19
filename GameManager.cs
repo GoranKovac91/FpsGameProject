@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _bullets = Rifle._bullets;
     [SerializeField] private int _bulletsToRealod = Rifle._bulletsToReload;
     [SerializeField] public MouseLooker mouseLooker;
-    
     [SerializeField] public Rifle rifle;
     [SerializeField] public FpsMouse mouse;
     
@@ -108,8 +107,6 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         _levelPausedCanvas.enabled = true;
         mouse.enabled = false;
-        //pistol.enabled = false;
-        //rifle.enabled = false;
         Time.timeScale = 0;       
     }
     public void UnPauseGame()
@@ -118,8 +115,6 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _levelPausedCanvas.enabled = false;
         mouse.enabled = true;
-        //pistol.enabled = true;
-        //rifle.enabled = true;
         Time.timeScale = 1;    
     }
     public void EndGame()

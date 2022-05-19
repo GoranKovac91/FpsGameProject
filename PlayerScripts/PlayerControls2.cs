@@ -9,7 +9,7 @@ public class PlayerControls2 : MonoBehaviour
     [SerializeField] private float _gravity = -9.81f;
     [SerializeField] private float _speed = 2.5f;
     [SerializeField] private float _jumpForce = 2.0f;
-    private CharacterController _characterController;
+    [SerializeField] private CharacterController _characterController;
     [SerializeField] private string _verticalMovement = "Vertical";
     [SerializeField] private string _horizontalMovement = "Horizontal";
     [SerializeField] public bool FireWeapons { get; private set; }
@@ -17,14 +17,11 @@ public class PlayerControls2 : MonoBehaviour
     public static event Action OnFire = delegate { };
     public LayerMask GroundLayerMask;
     public Transform GroundCheck;
-
     [SerializeField] private bool _isGrounded = false;
-
     private Vector3 _velocity;
 
     private void Awake()
     {
-    
         _characterController = GetComponent<CharacterController>();
     }
 

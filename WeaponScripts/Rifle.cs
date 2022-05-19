@@ -19,20 +19,15 @@ public class Rifle : MonoBehaviour
   
    
 
-    public  void Awake()
+    protected virtual void Awake()
     {
         _weaponAudio = GetComponent<AudioSource>();
         PlayerControls2.OnFire += Shoot;
        
     }
-    public  void Update()
+    protected virtual void Update()
     {
-        //if (Input.GetButtonDown("Fire1") && _bullets>=1)
-        //{
-        //    Debug.Log("Shooting");
-        //    Shoot();
-           
-        //}
+      
         if (Input.GetKeyDown(KeyCode.R) && _bulletsToReload > 0 &&_bullets <=0)
         {
           
@@ -51,7 +46,7 @@ public class Rifle : MonoBehaviour
            
         }
     }
-    private void Shoot()
+    protected virtual void Shoot()
     {
        
         _muzzleFlash.Play();

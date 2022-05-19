@@ -6,7 +6,7 @@ public class SuperWeaponPickup : MonoBehaviour
 {
     [SerializeField] private Transform _weaponHolder;
     [SerializeField] private Transform _weaponPosition;
-    public SuperWeapon weapon;
+    public PlasmaWeapon weapon;
     [SerializeField] private RottateArrTarget rottate;
 
     private void Awake()

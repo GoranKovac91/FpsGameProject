@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class HealthBoost : MonoBehaviour
 {
-    int health = 10;
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] protected  int _value = 10;
+  
+
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag=="Player")
         {
             PlayerInteractions playerInteractions = FindObjectOfType<PlayerInteractions>();
-            playerInteractions.BoostHealth(health);
+            playerInteractions.BoostHealth(_value);
             Destroy(gameObject);
             
 

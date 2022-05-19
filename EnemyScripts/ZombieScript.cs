@@ -15,17 +15,13 @@ public class ZombieScript : Enemy
     public GameObject healthBoosterPrefab;
     [SerializeField] private GameObject _bulletPickupPrefab;
 
-
-
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody>();
         _navMesh = GetComponent<NavMeshAgent>();
        
-    }
-    
+    } 
     private void Start()
     {
         MainTrigger mainTrigger = GetComponentInParent<MainTrigger>();
@@ -34,7 +30,6 @@ public class ZombieScript : Enemy
         mainTrigger.OnPlayerEnter.AddListener(Attack);
     }
    
-
     public override void TakeDamage(int value)
     {
         if (isDead)

@@ -12,6 +12,5 @@ public abstract class Enemy : MonoBehaviour
     public float _damage;
     public abstract void TakeDamage(int value);
     public abstract void Attack();
-   
-       
+        
 }

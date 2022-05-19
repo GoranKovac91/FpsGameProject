@@ -8,7 +8,6 @@ public class PlayerInteractions : MonoBehaviour
     public Vector3 _respawnPosition;
     public GameManager gameManager;
    
-
     private void Update()
     {
         
@@ -24,7 +23,6 @@ public class PlayerInteractions : MonoBehaviour
     
         if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Zombie")
         {
-
             gameManager.TakingDamageCanvas(true);
         }
     }
@@ -42,18 +40,10 @@ public class PlayerInteractions : MonoBehaviour
     }
     public void BoostHealth(int value)
     {
-        if (Health<100)
-        {
-            Health += value;
-        }
-        else
+        if (Health >= 100)
         {
             return;
         }
-        
+        Health += value;
     }
-   
-  
-  
-
 }
