@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 
 
-public class ZombieScript : Enemy
+public class ZombieScript : Enemy,IDamagable
 {
     [SerializeField] private bool isDead = false;
     [SerializeField] private Animator _animator;
@@ -48,6 +48,7 @@ public class ZombieScript : Enemy
             Destroy(gameObject,2.0f);   
         }
     }
+     
   
     public override void Attack()
     {
@@ -76,9 +77,9 @@ public class ZombieScript : Enemy
         }
         if (collision.gameObject.tag == "Player")
         {
-            
+            _rigidBody.isKinematic = true;
             PlayerInteractions playerInteractions = FindObjectOfType<PlayerInteractions>();
-            playerInteractions.TakeDamage(_damage);
+            playerInteractions.TakeDamage(_damage);  
         }
        
     }
@@ -88,8 +89,11 @@ public class ZombieScript : Enemy
         Instantiate(healthBoosterPrefab, transform.position + Vector3.up, Quaternion.identity);
         Instantiate(_bulletPickupPrefab, transform.position + Vector3.up, Quaternion.identity);
     }
-    
-  
 
+    public void DamageAmmount(int damage)
+    {
+        TakeDamage(damage);
+    }
 
+   
 }

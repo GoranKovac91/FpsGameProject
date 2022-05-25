@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
-    public float Health = 100;
+    public int Health = 100;
     public Vector3 _respawnPosition;
     public GameManager gameManager;
    
@@ -34,7 +34,7 @@ public class PlayerInteractions : MonoBehaviour
             gameManager.TakingDamageCanvas(false);
         }
     }
-    public void TakeDamage(float value)
+    public void TakeDamage(int value)
     {
         Health -= value;
     }
@@ -46,4 +46,6 @@ public class PlayerInteractions : MonoBehaviour
         }
         Health += value;
     }
+
+ 
 }

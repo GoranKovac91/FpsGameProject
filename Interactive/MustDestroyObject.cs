@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class MustDestroyObject : MonoBehaviour
+public class MustDestroyObject : MonoBehaviour,IDamagable
 {
-    public UnityEvent OnDestroy=new UnityEvent();
+    public UnityEvent OnDestroy = new UnityEvent();
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private Rigidbody _rb;
-    [SerializeField] private int _health = 200;
+    [SerializeField] private int _health = 10;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -24,5 +24,10 @@ public class MustDestroyObject : MonoBehaviour
             OnDestroy.Invoke();
             Destroy(gameObject, 2.0f);
         }
+    }
+
+    public void DamageAmmount(int damage)
+    {
+        TakeDamage(damage);
     }
 }

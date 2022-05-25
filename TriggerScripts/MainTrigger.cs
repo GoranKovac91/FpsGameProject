@@ -10,15 +10,12 @@ public class MainTrigger : MonoBehaviour
   
     private void OnTriggerEnter(Collider other)
     {
-       
         if (other.gameObject.tag!="Player")
         {
             return;
         }
         
         OnPlayerEnter.Invoke();
-        
-
     }
   
 

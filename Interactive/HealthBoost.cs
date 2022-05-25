@@ -5,8 +5,6 @@ using UnityEngine;
 public class HealthBoost : MonoBehaviour
 {
     [SerializeField] protected  int _value = 10;
-  
-
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag=="Player")
@@ -15,7 +13,6 @@ public class HealthBoost : MonoBehaviour
             playerInteractions.BoostHealth(_value);
             Destroy(gameObject);
             
-
         }
     }
 }

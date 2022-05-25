@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
     public int _health;
     public NavMeshAgent _navMesh;
     public float _speed;
-    public float _damage;
+    public int _damage;
     public abstract void TakeDamage(int value);
     public abstract void Attack();
         

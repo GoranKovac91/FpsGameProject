@@ -56,30 +56,11 @@ public class Rifle : MonoBehaviour
             if (Physics.Raycast(_shootPosition.transform.position, _shootPosition.transform.forward, out hit, range))
             {
                 Debug.Log(hit.transform.name);
-                MeshAgent meshAgent = hit.transform.GetComponent<MeshAgent>();
-                ZombieScript zombieScript = hit.transform.GetComponent<ZombieScript>();
-                MustDestroyObject mustDestroy = hit.transform.GetComponent<MustDestroyObject>();
-                if (meshAgent != null )
-                {
-                    meshAgent.TakeDamage(damage);
-                //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                //hit.rigidbody.AddForceAtPosition(ray.direction * _impactForce, hit.point);
-
+                IDamagable damagable = hit.collider.GetComponent<IDamagable>();
+            if (damagable != null)
+            { 
+                damagable.DamageAmmount(damage);
             }
-                if (zombieScript != null && hit.rigidbody != null)
-                {
-                   
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                
-                    hit.rigidbody.AddForceAtPosition(ray.direction * _impactForce, hit.point);
-                    zombieScript.TakeDamage(damage);
-                }
-                if (mustDestroy!=null)
-                {
-                mustDestroy.TakeDamage(damage);
-                }
-
                 GameObject impactGO = Instantiate(_impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
 
                 Destroy(impactGO, 1.0f);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SuperEnemyProjectile : MonoBehaviour
 {
-    [SerializeField] private float _damage = 0.1f;
+    [SerializeField] private int _damage = 1;
     
     private void OnParticleCollision(GameObject other)
     {

@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         _time -= Time.deltaTime;
-        if (_time<=0)
+        if (_time <= 0)
         {
             _gameStartCanvas.enabled = false;
         }

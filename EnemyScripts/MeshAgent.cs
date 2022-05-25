@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeshAgent : Enemy
+public class MeshAgent : Enemy,IDamagable
 {
 	public int StartingWaypointIndex = 0;
 	public List<Transform> Waypoints;
@@ -26,7 +26,6 @@ public class MeshAgent : Enemy
 		animator = GetComponent<Animator>();
 		_enemyAudio = GetComponent<AudioSource>();
 		_collider = GetComponent<CapsuleCollider>();
-		
 			
 	}
 	private void Start()
@@ -122,4 +121,8 @@ public class MeshAgent : Enemy
 		}
 	}
 
+    public void DamageAmmount(int damage)
+    {
+		TakeDamage(damage);
+    }
 }

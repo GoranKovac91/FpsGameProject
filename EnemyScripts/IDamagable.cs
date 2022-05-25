@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPickable 
+public interface IDamagable 
 {
-    int value { get; set; }
+    void DamageAmmount(int damage);
 }
